@@ -23,11 +23,18 @@ h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Helvetica', 'Helvetica';
 }
+
 h2 {
     font-size: 2em;
     font-family:'Helvetica', 'Helvetica', 'Helvetica';
-    color: #999;
 }
+
+h3 {
+    font-size: 1.75em;
+    font-family:'Helvetica', 'Helvetica', 'Helvetica';
+    color:#999;
+}
+
 p {
     font-family: 'Helvetica';
     font-size: 1.25em;
@@ -35,6 +42,7 @@ p {
     color: #333;
     text-align: justify;
 }
+
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
