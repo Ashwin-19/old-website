@@ -8,7 +8,7 @@ date: 2020-06-1
 
 ## Our Team
 
-![Our Team](Blog_files/our_team.png)
+<p><img src="./Blog_files/our_team.png" alt="Our Team"></p>
 
 ## Introduction
 
@@ -22,14 +22,14 @@ For our project, we decided to explore this accidental linkability by exploiting
 We started with accessing publicly available data, collecting personally identifiable information (PII) on the users, followed by varied attempts to link them to accounts on different OSNs.
 
 ## Timeline
-![Project Timeline](Blog_files/timeline.jpg)
+<p><img src="./Blog_files/timeline.jpg" alt="Project Timeline"></p>
 
 ## Initial Idea: Exploring accidental release of API Keys
 
 While doing the assignments in this course, we noticed that many developers on Github forget to remove API keys (for their social network accounts such as Twitter and Slack). To confirm this, we manually searched GitHub and found some lists of Twitter API keys. After curating them together, we were able to get roughly 300 unique Twitter API keys, out of which around 200 were valid and working keys. The problem was fascinating since there were a lot of security and privacy-related aspects to it. These keys could be used to collect more data per unit time (for networks that throttle with rate limits per account). More interestingly, in some cases, can give a stranger complete access to another user's Twitter account (which would be a gross breach of security and privacy). Hence, we decided to attempt at extracting such API keys from GitHub commits (and StackOverflow data).
 
 Initially, we used a regex of Slack API keys to find such keys in the GitHub commits and StackOverflow data. Once we got these API keys, we needed a way to test them and use them. Hence we set up a terminal utility (written in Golang). This utility took the Slack API key as input and opened a terminal interface for that user. Using this, we had complete control over the user's account where we could even send messages from the account. This was a gross breach of security and privacy that we were able to exploit. Here's an example:
-![Imgur](Blog_files/G4GSutP.jpg)
+<p><img src="./Blog_files/G4GSutP.jpg" alt="Imgur"></p>
 
 ## GitHub Email Vulnerability
 
@@ -39,7 +39,8 @@ Don't take our word for it. Test it out!
 1. Clone any public repository (eg. `git clone https://github.com/Daksh/process-github-daily-dumps.git`)
 2. Navigate inside this repository using terminal (eg. `cd process-github-daily-dumps`)
 3. Check the commits using `git log`
-![github_email_in_commit](Blog_files/Cp4TlDY.png)
+
+<img src="./Blog_files/Cp4TlDY.png" alt="github_email_in_commit">
 
 Voila! You will find the user mentioned email address along with each commit.
 
@@ -119,7 +120,7 @@ We made an **Image Grid** to get an understanding if the profiles collected are 
 
 Note: There did not exist a tool to create such an interactive grid, hence we wrote the script ourselves. **We have publically released this tool on Github, (at <https://github.com/Daksh/Interactive-Image-Grid>).**
 
-<iframe id="imageGrid" scrolling="no" style="border:none;" seamless="seamless" src="linkedIn_profile_images_grid.html" height="525" width="100%"></iframe>
+<iframe id="imageGrid" scrolling="no" style="border:none;" seamless="seamless" src="./Blog_files/linkedIn_profile_images_grid.html" height="525" width="100%"></iframe>
 
 We made **Word Clouds** to see the most prominent working titles of users and organizations where they worked at:
 
