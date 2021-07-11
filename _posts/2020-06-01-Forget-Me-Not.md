@@ -13,7 +13,7 @@ date: 2020-06-1
 ## Introduction
 
 Online Social Networks (OSNs) have experienced exponential growth in recent years. They have a significant presence in both the personal and professional lives of a vast segment of the world's populace.
-Any content or personal information that an individual shares on any social network can be traced back to him/her even after it has been removed. It is rightly said that 'Nothing is ever lost on the internet.'
+Any content or personal information that an individual shares on any social network can be traced back to them even after it has been removed. It is rightly said that 'Nothing is ever lost on the internet.'
 
 Unsurprisingly, OSNs are subject to severe privacy and security risks. Due to the amount of personally identifiable information shared by users in OSNs and lack of adequate privacy settings, it becomes possible to aggregate data about users by linking their profiles across several online social networks.
 
@@ -29,7 +29,9 @@ We started with accessing publicly available data, collecting personally identif
 
 While doing the assignments in this course, we noticed that many developers on Github forget to remove API keys (for their social network accounts such as Twitter and Slack). To confirm this, we manually searched GitHub and found some lists of Twitter API keys. After curating them together, we were able to get roughly 300 unique Twitter API keys, out of which around 200 were valid and working keys. The problem was fascinating since there were a lot of security and privacy-related aspects to it. These keys could be used to collect more data per unit time (for networks that throttle with rate limits per account). More interestingly, in some cases, can give a stranger complete access to another user's Twitter account (which would be a gross breach of security and privacy). Hence, we decided to attempt at extracting such API keys from GitHub commits (and StackOverflow data).
 
-Initially, we used a regex of Slack API keys to find such keys in the GitHub commits and StackOverflow data. Once we got these API keys, we needed a way to test them and use them. Hence we set up a terminal utility (written in Golang). This utility took the Slack API key as input and opened a terminal interface for that user. Using this, we had complete control over the user's account where we could even send messages from the account. This was a gross breach of security and privacy that we were able to exploit. Here's an example:
+Initially, we used a regex of Slack API keys to find such keys in the GitHub commits and StackOverflow data. Once we got these API keys, we needed a way to test them and use them. Hence we set up a terminal utility (written in Golang). This utility took the Slack API key as input and opened a terminal interface for that user. Using this, we had complete control over the user's account where we could even send messages from the account. This was a gross breach of security and privacy that we were able to exploit. 
+Here's an example:
+
 <!-- ![Imgur](https://i.imgur.com/G4GSutP.jpg) -->
 <img src="https://i.imgur.com/G4GSutP.jpg" width="1000"/>
 
@@ -123,7 +125,7 @@ We made an **Image Grid** to get an understanding if the profiles collected are 
 
 Note: There did not exist a tool to create such an interactive grid, hence we wrote the script ourselves. **We have publically released this tool on Github, (at <https://github.com/Daksh/Interactive-Image-Grid>).**
 
-<iframe id="imageGrid" scrolling="no" style="border:none;" seamless="seamless" src="https://ashwin-19.github.io/Blog_files/linkedIn_profile_images_grid_web.html" height="525" width="100%"></iframe>
+<iframe id="imageGrid" scrolling="no" style="border:none;" seamless="seamless" src="https://ashwin-19.github.io/Blog_files/linkedIn_profile_images_grid.html" height="525" width="100%"></iframe>
 
 We made **Word Clouds** to see the most prominent working titles of users and organizations where they worked at:
 
@@ -242,4 +244,4 @@ This graph is a cumulative representation of all the users we were able to link 
 
 We can see that it is straightforward to link a user on two platforms, but it keeps getting tougher to link the user on more platforms.
 
-In 3 months with limited resources, we were able to link roughly 1.7 million user profiles across a minimum of 2 platforms and a maximum of 5 platforms from a tiny part of publically available data on the internet. It is very clear from the dataset that we have been able to create, that users are often careless with what they share online and most likely forget about all the personal information that they have put out there. It has become easy to link one person on a particular platform to other profiles on different OSNs. This makes it possible to profile an individual and hence breach his/her privacy and security online. 
+In 3 months with limited resources, we were able to link roughly 1.7 million user profiles across a minimum of 2 platforms and a maximum of 5 platforms from a tiny part of publically available data on the internet. It is very clear from the dataset that we have been able to create, that users are often careless with what they share online and most likely forget about all the personal information that they have put out there. It has become easy to link one person on a particular platform to other profiles on different OSNs. This makes it possible to profile an individual and hence breach their privacy and security online. 
