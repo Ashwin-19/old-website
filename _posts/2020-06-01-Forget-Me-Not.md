@@ -8,7 +8,7 @@ date: 2020-06-1
 
 ## Our Team
 
-![Imgur](https://i.imgur.com/tdUpaCy.png)
+<img src="https://i.imgur.com/tdUpaCy.png" width="1000"/>
 
 ## Introduction
 
@@ -22,24 +22,27 @@ For our project, we decided to explore this accidental linkability by exploiting
 We started with accessing publicly available data, collecting personally identifiable information (PII) on the users, followed by varied attempts to link them to accounts on different OSNs.
 
 ## Timeline
-![Imgur](https://i.imgur.com/WjlFHE4.jpg)
+<!-- ![Imgur](https://i.imgur.com/WjlFHE4.jpg) -->
+<img src="https://i.imgur.com/WjlFHE4.jpg" width="1000"/>
 
 ## Initial Idea: Exploring accidental release of API Keys
 
 While doing the assignments in this course, we noticed that many developers on Github forget to remove API keys (for their social network accounts such as Twitter and Slack). To confirm this, we manually searched GitHub and found some lists of Twitter API keys. After curating them together, we were able to get roughly 300 unique Twitter API keys, out of which around 200 were valid and working keys. The problem was fascinating since there were a lot of security and privacy-related aspects to it. These keys could be used to collect more data per unit time (for networks that throttle with rate limits per account). More interestingly, in some cases, can give a stranger complete access to another user's Twitter account (which would be a gross breach of security and privacy). Hence, we decided to attempt at extracting such API keys from GitHub commits (and StackOverflow data).
 
 Initially, we used a regex of Slack API keys to find such keys in the GitHub commits and StackOverflow data. Once we got these API keys, we needed a way to test them and use them. Hence we set up a terminal utility (written in Golang). This utility took the Slack API key as input and opened a terminal interface for that user. Using this, we had complete control over the user's account where we could even send messages from the account. This was a gross breach of security and privacy that we were able to exploit. Here's an example:
-![Imgur](https://i.imgur.com/G4GSutP.jpg)
+<!-- ![Imgur](https://i.imgur.com/G4GSutP.jpg) -->
+<img src="https://i.imgur.com/G4GSutP.jpg" width="1000"/>
 
 ## GitHub Email Vulnerability
 
 When setting up `git` for the first time on your laptop/machine, a user is required to set a Name and an Email before making a commit. These are generally set by a command similar to `git config --global user.email "email@example.com"`. Users often do not wonder about the repercussions; this may have a few years later in the future. For example, when pushing commits to your public repository on GitHub, you are attaching this set name+email (in plaintext) along with. 
 
 Don't take our word for it. Test it out! 
-1. Clone any public repository (eg. `git clone https://github.com/Daksh/process-github-daily-dumps.git`)
-2. Navigate inside this repository using terminal (eg. `cd process-github-daily-dumps`)
-3. Check the commits using `git log`
-![github_email_in_commit](https://i.imgur.com/Cp4TlDY.png)
++ Clone any public repository (eg. `git clone https://github.com/Daksh/process-github-daily-dumps.git`)
++ Navigate inside this repository using terminal (eg. `cd process-github-daily-dumps`)
++ Check the commits using `git log`
+<!-- ![github_email_in_commit](https://i.imgur.com/Cp4TlDY.png) -->
+<img src="https://i.imgur.com/Cp4TlDY.png" width="1000"/>
 
 Voila! You will find the user mentioned email address along with each commit.
 
@@ -91,13 +94,15 @@ We opened this given URL directly in our browser upon suffixing it by a valid em
 > `https://www.linkedin.com/sales/gmail/profile/viewByEmail/abc@gmail.com`
 The resulting webpage looked like the following:
 
-![SalesAPI](https://i.imgur.com/RtttPTh.png)
+<!-- ![SalesAPI](https://i.imgur.com/RtttPTh.png) -->
+<img src="https://i.imgur.com/RtttPTh.png" width="1000"/>
 
 We decided to proceed by scraping data from the page that was returned by this URL. However, we encountered another challenge. For the above request to work, we needed to be logged into a LinkedIn account, which wasn't feasible while using a scraper programmatically.
 
 To overcome this, we used Burp Suite - it acts as a Man in the Middle (MITM) between our web browser and the internet. We used it to analyze the GET request made to the above URL. We could now repeat the same request with the same headers but different payload (email) to get user information. As only authenticated LinkedIn users are allowed to use this API, we needed authentication tokens (from headers) to automate the whole process (using Burp Suite).
 
-![BurpSuite](https://i.imgur.com/TWJeknm.png)
+<!-- ![BurpSuite](https://i.imgur.com/TWJeknm.png) -->
+<img src="https://i.imgur.com/TWJeknm.png" width="1000"/>
 
 From the output, we scraped the entire HTML and parsed it to collect more information. In addition to their LinkedIn Profiles, we also collect the following information:
 
@@ -109,7 +114,8 @@ From the output, we scraped the entire HTML and parsed it to collect more inform
 
 While we had started collecting data using this methodology, shortly after, the **LinkedIn Sales API** feature was sunset. Hence, we could only obtain the information for a subset of the users in our dataset.
 
-![SalesAPISunset](https://i.imgur.com/jpb1pXm.png)
+<!-- ![SalesAPISunset](https://i.imgur.com/jpb1pXm.png) -->
+<img src="https://i.imgur.com/jpb1pXm.png" width="1000"/>
 
 ### Analysis
 
@@ -121,11 +127,13 @@ Note: There did not exist a tool to create such an interactive grid, hence we wr
 
 We made **Word Clouds** to see the most prominent working titles of users and organizations where they worked at:
 
-![Title](https://i.imgur.com/f5jQwNm.png) ![Org](https://i.imgur.com/nYmmWQm.png)
+<!-- ![Title](https://i.imgur.com/f5jQwNm.png) ![Org](https://i.imgur.com/nYmmWQm.png) -->
+<p><img src="https://i.imgur.com/f5jQwNm.png" width="500"/><img src="https://i.imgur.com/nYmmWQm.png" width="500"/></p>
 
 We also plotted the locations of the users on a Map to profile our demographic further.
 
-![Imgur](https://i.imgur.com/S87TmDt.png)
+<!-- ![Imgur](https://i.imgur.com/S87TmDt.png) -->
+<img src="https://i.imgur.com/S87TmDt.png" width="1000"/>
 
 We scraped links to other platforms from a user's Linekdin profile and found the following distribution of linked platforms through the LinkedIn Data:
 
@@ -160,7 +168,8 @@ To avoid getting blacklisted by GitHub (or overload them with too many requests)
 
 We came across an interesting Twitter trend, where users post tweets asking for their followers' profiles on other social networks. They ask for various profiles such as Instagram, Soundcloud, Paypal, etc. so they could add them as friends on that platform, promote their content, or donate small amounts of money to them (e.g. paying for their lunch).
 
-![twitter_data](https://i.imgur.com/uHxRLOW.png)
+<!-- ![twitter_data](https://i.imgur.com/uHxRLOW.png) -->
+<img src="https://i.imgur.com/uHxRLOW.png" width="1000"/>
 
 ### Data Collection
 
@@ -183,14 +192,16 @@ Interestingly, we noticed an increased number of such tweets since lockdowns (co
 
 As visible from the graph, there is an increase in the slope post the commencement of lockdown periods in countries majorly affected by COVID, denoting higher usage periods of social media in those countries due to reduced in-person interactions. We also plotted the locations of these users:
 
-![Imgur](https://i.imgur.com/V7X9Y4f.png)
+<!-- ![Imgur](https://i.imgur.com/V7X9Y4f.png) -->
+<img src="https://i.imgur.com/V7X9Y4f.png" width="1000"/>
 
 Once such tweets were retrieved, we decided to use the Twitter API to get the replies to such tweets. The twitter API itself does not have a feature for querying replies to a tweet. We worked our way around by querying the mentions of the users who posted the original tweet and checking if those mentions were in replies to the tweets we initially stored. However, this only gave us recent mention-containing tweets (due to the API endpoint restrictions). Because of this, we were restricted to scraping tweets only from the past 24 hours.
 
 We continued collecting this data for five days and got good results. 
 For Snapchat, we retrieved the snapcodes that users had shared instead of any Snapchat links in the replies. These snapcodes are unique to only one profile and hence can be considered as PII for a user. Following is a collage of the snapcodes we collected from the images embedded in replies to the tweets:
 
-![snapchat_collage](https://i.imgur.com/7xWQpht.jpg) 
+<!-- ![snapchat_collage](https://i.imgur.com/7xWQpht.jpg)  -->
+<img src="https://i.imgur.com/7xWQpht.jpg" width="1000"/>
 
 We parsed the collected replies for possible links of their accounts on these platforms. While parsing these, we also collected any URLs that the users had linked in their profile or bio to enable linking to more platforms. This process yielded the following distribution of linked platforms:
 
@@ -210,7 +221,8 @@ We plotted a graph with the followers and following of the users who were the on
 
 We found an interesting platform **Linktree**, which was linked to the twitter profiles of such users. Linktree allows users to curate a one-stop page to connect all their OSN accounts. Here, we noticed users adding all their social media links so that their audience can access them on one page. 
 
-![linktree](https://i.imgur.com/nPnJYhT.png)
+<!-- ![linktree](https://i.imgur.com/nPnJYhT.png) -->
+<img src="https://i.imgur.com/nPnJYhT.png" width="1000"/>
 
 We found no previous research on this platform and read online that it comprises of roughly 3 million users. We feel that this platform might be ideal for future research on linkability since it has no limits on scraping and compromises the links to multiple user accounts.
 
